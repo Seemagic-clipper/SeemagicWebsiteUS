@@ -112,13 +112,34 @@ header {
   border-radius:10px;
   box-shadow:0 2px 5px rgba(0,0,0,0.1);
   overflow:hidden;
-  flex:1 1 calc(33.333% - 1rem);
-  max-width:calc(33.333% - 1rem);
+  flex:1 1 calc(33% - 1rem);
+  max-width:calc(33% - 1rem);
   transition: transform 0.3s;
 }
 .product-card:hover { transform:translateY(-5px); }
 .product-card img { width:100%; height:auto; object-fit:cover; }
 .product-card .info { padding:1rem; text-align:center; }
+
+/* 关键新增：让产品描述文本两端对齐 */
+.product-card .info p {
+  text-align: justify;
+  /* 可选：优化英文单词间距，避免极端情况 */
+  word-spacing: -0.5px;
+}
+
+/* 可选：补充响应式适配，避免小屏幕显示错乱 */
+@media (max-width: 992px) {
+  .product-card {
+    flex:1 1 calc(50% - 1rem);
+    max-width:calc(50% - 1rem);
+  }
+}
+@media (max-width: 576px) {
+  .product-card {
+    flex:1 1 100%;
+    max-width:100%;
+  }
+}
 
 /* 关于我们 */
 .about {
@@ -151,10 +172,11 @@ footer { background:#333; color:#fff; text-align:center; padding:1rem 0; margin-
     </div>
     <nav>
       <ul>
-        <li><a href="#banner">Home</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <!-- 关键修改：给每个 a 标签添加 style="font-weight:bold;" 实现加粗 -->
+        <li><a href="#banner" style="font-weight:bold;">HOME</a></li>
+        <li><a href="#products" style="font-weight:bold;">PRODUCTS</a></li>
+        <li><a href="#about" style="font-weight:bold;">ABOUT</a></li>
+        <li><a href="#contact" style="font-weight:bold;">CONTACT</a></li>
       </ul>
       <div class="nav-toggle">
         <span></span>
@@ -173,31 +195,47 @@ footer { background:#333; color:#fff; text-align:center; padding:1rem 0; margin-
 </section>
 
 <!-- 产品展示 -->
+<!-- 锚点占位符：高度等于导航栏高度，隐藏不显示，仅用于锚点定位 -->
+<div id="products" style="height: 80px; margin-top: -80px; visibility: hidden;"></div>
 <section class="products" id="products">
   <h2>Our Products</h2>
   <div class="product-grid">
     <div class="product-card">
-      <img src="./see_pic/Seemagic_electric_nail_clipper_e2pro.webp" alt="Product 1">
-      <div class="info"><h3 style="text-align:center">Electric Nail Clipper (Alloy Edition)</h3><p style="text-align:left">The new Seemagic Electric Nail Clipper comes with powerful performance and a complete all-around upgrade. Crafted with a full-alloy body and finished through 17 layers of electroplating, it delivers a sleek metallic shine with a premium touch. More than just a tool, it's a statement of elegance—because true luxury lies in the experience of giving.</p></div>
+      <img src="./see_pic/Seemagic_electric_nail_clipper_pro_s.webp" alt="Product 1">
+      <div class="info"><h3 style="text-align:center">Electric Nail Clipper Pro</h3><p style="text-align:left">Arguably the market's top-selling and most renowned electric nail clipper. It strikes an excellent balance of performance and price. With years of enduring global popularity, it has won millions of users' trust. It consistently tops category bestseller lists on major e-commerce platforms year-round. A landmark in the industry, it has greatly boosted the popularization of electric nail clippers.</p></div>
     </div>
     <div class="product-card">
-      <img src="./see_pic/Seemagic_electric_nail_clipper_mini.webp" alt="Product 2">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_smart_s.webp" alt="Product 2">
+      <div class="info"><h3 style="text-align:center">The Electric Nail Clipper Elf</h3><p style="text-align:left"> It is designed for gifting. It features sports-car-grade paint and electroplated metal for a premium look, with a smooth magnetic cover for a satisfying high-end feel. Its compact yet powerful ultra-precise gearbox easily trims even thick nails. Presented in an exquisite gift box, it makes a thoughtful and impressive present, perfect for creating memorable moments.</p></div>
+    </div>
+    <div class="product-card">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_mini.webp" alt="Product 3">
       <div class="info"><h3 style="text-align:center">Electric Nail Clipper Mini</h3><p style="text-align:left">The Seemagic Electric Nail Clipper Mini features a newly engineered internal structure, compressing every component to achieve an ultra-compact and portable design. Despite its small size, it's equipped with a heat-treated, hardened blade and a magnetic flip cover for safer, faster, and more comfortable trimming. Practical, stylish, and fun to use — the perfect everyday companion you can carry anywhere.</p></div>
     </div>
     <div class="product-card">
-      <img src="./see_pic/Seemagic_electric_nail_clipper_hero_small.webp" alt="Product 3">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_e2pro.webp" alt="Product 4">
+      <div class="info"><h3 style="text-align:center">Electric Nail Clipper (Alloy Edition)</h3><p style="text-align:left">The new Seemagic Electric Nail Clipper comes with powerful performance and a complete all-around upgrade. Crafted with a full-alloy body and finished through 17 layers of electroplating, it delivers a sleek metallic shine with a premium touch. More than just a tool, it's a statement of elegance—because true luxury lies in the experience of giving.</p></div>
+    </div>
+    <div class="product-card">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_hero_small.webp" alt="Product 5">
       <div class="info"><h3 style="text-align:center">Electric Nail Clipper Hero</h3><p style="text-align:left">The Seemagic Planet Explorer Edition reimagines nail care with a bold, cosmic-inspired design that pays tribute to the beauty of Earth. Crafted with seamless curves and finished with premium anodized metal, it feels like holding a miniature planet in your hand. Powered by our patented infrared sensing technology, it sets a new standard where innovation meets artistry—bringing both style and performance to the next level.</p></div>
+    </div>
+    <div class="product-card">
+      <img src="./see_pic/Seemagic_electric_nail_clipper_ufo_s.webp" alt="Product 6">
+      <div class="info"><h3 style="text-align:center">Electric Nail Clipper UFO</h3><p style="text-align:left"> It boasts a unique UFO-inspired design that exudes a strong sense of technology. Its incredibly affordable price creates an extremely low barrier to entry, making it the perfect choice for users trying electric nail clippers for the first time. This model is particularly well-suited for developing markets and has already earned enthusiastic praise and wide popularity among customers across Central Asia and Latin America.</p></div>
     </div>
   </div>
 </section>
 
 <!-- 关于我们 -->
+<!-- 锚点占位符：高度等于导航栏高度，隐藏不显示，仅用于锚点定位 -->
+<div id="about" style="height: 30px; margin-top: -30px; visibility: hidden;"></div>
 <section class="about" id="about" style="background:#fff3f3; padding:60px 20px; font-family:Arial, sans-serif;">
   <h1 style="font-size:2.5em; color:#ff7f50; margin-bottom:20px; text-align:center;">About Us</h1>
   
   <h2 style="text-align:left; color:#333; margin-bottom:10px;">Seemagic – Smart Nail Care Redefined</h2>
   <p style="max-width:800px; margin:0 auto 30px; font-size:1.1em; line-height:1.6; color:#333; text-align:left;">
-    Founded in 2020 in Qingdao, China, Seemagic is a pioneer in the electric nail clipper industry. In 2021, we launched the world's first smart electric nail clipper equipped with an infrared safety sensor and intelligent detection algorithms, ensuring a safer, more precise, and effortless grooming experience. And it quickly becoming a top choice across platforms and shaping the future of nail care. Over 1 million units sold worldwide.
+    Founded in 2020 in Qingdao, China, Seemagic is a pioneer in the electric nail clipper industry. In 2021, we launched the world's first smart electric nail clipper equipped with an infrared safety sensor and intelligent detection algorithms, ensuring a safer, more precise, and effortless grooming experience. And it quickly becoming a top choice across platforms and shaping the future of nail care. Millions of units sold worldwide.
   </p>
   
   <p style="max-width:800px; margin:0 auto 30px; font-size:1.1em; line-height:1.6; color:#333; text-align:left;">
@@ -241,7 +279,7 @@ footer { background:#333; color:#fff; text-align:center; padding:1rem 0; margin-
 </section>
 
 <footer>
-  &copy; 2025 Seemagic. All rights reserved.
+  &copy; 2026 Seemagic. All rights reserved.
 </footer>
 
 <script>
