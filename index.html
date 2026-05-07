@@ -279,8 +279,13 @@ footer { background:#333; color:#fff; text-align:center; padding:1rem 0; margin-
 </section>
 
 <footer>
-  &copy; 2026 Seemagic. All rights reserved.
+  &copy; <span id="year"></span> Seemagic. All rights reserved.
 </footer>
+
+<script>
+// 自动获取当前年份
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 <script>
 // 响应式导航
